@@ -1,9 +1,7 @@
-import java.util.Arrays;
-
 public class Solution {
 
-  public int[] solution(int[] num_list, int n) {
-    return Arrays.copyOfRange(num_list, n - 1, num_list.length);
+  public int solution(int a, int b, boolean flag) {
+    return flag ? a + b : a - b;
   }
 
 }
