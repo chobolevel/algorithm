@@ -1,11 +1,7 @@
 public class Solution {
 
   public static String solution(String[] arr) {
-    String result = "";
-    for(String s : arr) {
-      result += s;
-    }
-    return result;
+    return String.join("", arr);
   }
 
   public static void main(String[] args) {
