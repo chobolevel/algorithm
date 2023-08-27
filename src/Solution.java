@@ -1,13 +1,11 @@
 public class Solution {
 
-  public static int solution(int a, int b) {
-    String s1 = String.valueOf(a);
-    String s2 = String.valueOf(b);
-    return Integer.parseInt(s1 + s2) >= Integer.parseInt(s2 + s1) ? Integer.parseInt(s1 + s2) : Integer.parseInt(s2 + s1);
+  public static int solution(int number, int n, int m) {
+    return number % n == 0 && number % m == 0 ? 1 : 0;
   }
 
   public static void main(String[] args) {
-    System.out.println(solution(89, 8));
+    System.out.println(solution(55, 10, 5));
   }
 
 }
