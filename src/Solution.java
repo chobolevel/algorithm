@@ -1,16 +1,16 @@
 public class Solution {
 
-  public static String solution(String str1, String str2) {
+  public static String solution(String[] arr) {
     String result = "";
-    for(int i = 0; i < str1.length(); i++) {
-      result += str1.charAt(i);
-      result += str2.charAt(i);
+    for(String s : arr) {
+      result += s;
     }
     return result;
   }
 
   public static void main(String[] args) {
-    System.out.println(solution("aaaaa", "bbbbb"));
+    String[] arr = {"a", "b", "c"};
+    System.out.println(solution(arr));
   }
 
 }
