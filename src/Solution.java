@@ -1,21 +1,21 @@
-import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.stream.IntStream;
 
 public class Solution {
 
-  public static int solution(String ineq, String eq, int n, int m) {
-    Map<String, BiFunction<Integer, Integer, Boolean>> functions = Map.of(
-      ">=", (a, b) -> a >= b,
-      "<=", (a, b) -> a <= b,
-      ">!", (a, b) -> a > b,
-      "<!", (a, b) -> a < b
-    );
-
-    return functions.get(ineq + eq).apply(n, m) ? 1 : 0;
+  public static int[] solution(int start, int end_num) {
+    int[] ascArr = IntStream.rangeClosed(end_num, start).toArray();
+    int[] descArr = new int[ascArr.length];
+    for(int i = 0; i < ascArr.length; i++) {
+      descArr[descArr.length - 1 - i] = ascArr[i];
+    }
+    return descArr;
   }
 
   public static void main(String[] args) {
-    System.out.println(solution(">", "!", 41, 78));
+    int[] solution = solution(10, 3);
+    for(int i : solution) {
+      System.out.println(i);
+    }
   }
 
 }
