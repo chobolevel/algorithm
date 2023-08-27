@@ -1,23 +1,26 @@
+import java.util.Arrays;
+
 public class Solution {
 
   public static int[] solution(int[] arr) {
-    for(int i = 0; i < arr.length; i++) {
-      int n = arr[i];
-      if(n >= 50 && n % 2 == 0) {
-        arr[i] = n / 2;
-      } else if(n < 50 && n % 2 != 0) {
-        arr[i] = n * 2;
+    return Arrays.stream(arr).map((i) -> {
+      int n = i;
+      if(i >= 50 && i % 2 == 0) {
+        n = i / 2;
+      } else if(i < 50 && i % 2 != 0) {
+        n = i * 2;
       }
-    }
-    return arr;
+      System.out.println(n);
+      return n;
+    }).toArray();
   }
 
   public static void main(String[] args) {
     int[] arr = {1, 2, 3, 100, 99, 98};
-    int[] solution = solution(arr);
-    for(int i : solution) {
-      System.out.println(i);
-    }
+    solution(arr);
+//    for(int i : arr) {
+//      System.out.println(i);
+//    }
   }
 
 }
