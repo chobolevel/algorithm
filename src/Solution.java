@@ -1,43 +1,28 @@
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
-  public static void main(String[] args) throws IOException {
 
-//    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//
-//    StringTokenizer st = new StringTokenizer(br.readLine());
-//
-//    String str1 = st.nextToken();
-//    String str2 = st.nextToken();
-//    int n = Integer.parseInt(st.nextToken());
-//
-//    String first = "";
-//    String last = "";
-//    String result = "";
-//
-//    first = str1.substring(0, n);
-//    last = str1.substring(first.length() + str2.length(), str1.length());
-//    result = first + str2 + last;
-//
-//    bw.write(result);
-//
-//    br.close();
-//    bw.close();
-
-    System.out.println(solution("He11oWor1d", "lloWorl", 2));
-  }
-
-  public static String solution(String my_string, String overwrite_string, int s) {
-    String first = "";
-    String last = "";
-    String result = "";
-
-    first = my_string.substring(0, s);
-    last = my_string.substring(first.length() + overwrite_string.length());
-    result = first + overwrite_string + last;
-
+  public static int[] solution(int[] num_list, int n) {
+    List<Integer> resultList = new ArrayList<>();
+    for(int i = 1; i <= num_list.length; i++) {
+      if(i >= n) {
+        resultList.add(num_list[i - 1]);
+      }
+    }
+    int[] result = new int[resultList.size()];
+    for(int i = 0; i < resultList.size(); i++) {
+      result[i] = resultList.get(i);
+    }
     return result;
   }
 
+  public static void main(String[] args) {
+    int[] num_list = {5, 2, 1, 7, 5};
+    int n = 2;
+    int[] solution = solution(num_list, n);
+    for(int i : solution) {
+      System.out.println(i);
+    }
+  }
 }
