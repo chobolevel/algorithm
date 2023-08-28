@@ -1,21 +1,26 @@
 public class Solution {
 
   // 0, 5, 10, 15, 20 17
-  public static String[] solution(String[] names) {
-    String[] result = new String[names.length % 5 == 0 ? names.length / 5 : names.length / 5 + 1];
-    for(int i = 0; i < names.length; i++) {
-      if(i % 5 == 0) {
-        result[i == 0 ? 0 : i / 5] = names[i];
-      }
+  public static int[] solution(int[] num_list) {
+    int[] result = new int[num_list.length + 1];
+    for(int i = 0; i < num_list.length; i++) {
+      result[i] = num_list[i];
+    }
+    int before = num_list[num_list.length - 2];
+    int last = num_list[num_list.length - 1];
+    if(last > before) {
+      result[result.length - 1] = last - before;
+    } else {
+      result[result.length - 1] = last * 2;
     }
     return result;
   }
 
   public static void main(String[] args) {
-    String[] arr = {"nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx", "katarina", "aatrox", "kaisa"};
-    String[] solution = solution(arr);
-    for(String s : solution) {
-      System.out.println(s);
+    int[] arr = {5, 2, 1, 7, 5};
+    int[] solution = solution(arr);
+    for(int i : solution) {
+      System.out.println(i);
     }
   }
 
