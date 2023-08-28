@@ -1,17 +1,21 @@
-import java.util.stream.IntStream;
-
 public class Solution {
 
-  public static int[] solution(int[] num_list) {
-    return IntStream.of(num_list).sorted().skip(5).toArray();
+  public static int solution(int[] numbers, int n) {
+    int result = 0;
+    for(int i : numbers) {
+      if(result > n) {
+        break;
+      } else {
+        result += i;
+      }
+    }
+    return result;
+    // return IntStream.of(numbers).reduce((acc, cur) -> acc > n ? acc : acc + cur);
   }
 
   public static void main(String[] args) {
-    int[] arr = {12, 4, 15, 46, 38, 1, 14, 56, 32, 10};
-    int[] solution = solution(arr);
-    for(int i : solution) {
-      System.out.println(i);
-    }
+    int[] arr = {58, 44, 27, 10, 100};
+    System.out.println(solution(arr, 139));
   }
 
 }
