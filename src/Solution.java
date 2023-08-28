@@ -1,12 +1,17 @@
+import java.util.Arrays;
+
 public class Solution {
 
-  public static String solution(String my_string, int n) {
-    int begin = my_string.length() - n;
-    return my_string.substring(begin);
+  public static int[] solution(int[] num_list, int n) {
+    return Arrays.copyOfRange(num_list, 0, n);
   }
 
   public static void main(String[] args) {
-    System.out.println(solution("ProgrammerS123", 11));
+    int[] arr = {5, 2, 1, 7, 5};
+    int[] result = solution(arr, 3);
+    for(int i : result) {
+      System.out.println(i);
+    }
   }
 
 }
