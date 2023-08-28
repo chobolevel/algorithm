@@ -1,20 +1,22 @@
 public class Solution {
 
-  public static int solution(int n, String control) {
-    String[] controlArr = control.split("");
-    for(String s : controlArr) {
-      switch (s) {
-        case "w" -> n++;
-        case "s" -> n--;
-        case "d" -> n += 10;
-        case "a" -> n -= 10;
+  // 0, 5, 10, 15, 20 17
+  public static String[] solution(String[] names) {
+    String[] result = new String[names.length % 5 == 0 ? names.length / 5 : names.length / 5 + 1];
+    for(int i = 0; i < names.length; i++) {
+      if(i % 5 == 0) {
+        result[i == 0 ? 0 : i / 5] = names[i];
       }
     }
-    return n;
+    return result;
   }
 
   public static void main(String[] args) {
-    System.out.println(solution(0, "wsdawsdassw"));
+    String[] arr = {"nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx", "katarina", "aatrox", "kaisa"};
+    String[] solution = solution(arr);
+    for(String s : solution) {
+      System.out.println(s);
+    }
   }
 
 }
