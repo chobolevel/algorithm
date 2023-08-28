@@ -1,17 +1,18 @@
-import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Solution {
 
-  public static int[] solution(int[] num_list, int n) {
-    return Arrays.copyOfRange(num_list, 0, n);
+  public static int solution(int[] num_list) {
+    if(num_list.length > 10) {
+      return IntStream.of(num_list).sum();
+    } else {
+      return IntStream.of(num_list).reduce((acc, cur) -> acc * cur).getAsInt();
+    }
   }
 
   public static void main(String[] args) {
-    int[] arr = {5, 2, 1, 7, 5};
-    int[] result = solution(arr, 3);
-    for(int i : result) {
-      System.out.println(i);
-    }
+    int[] arr = {2, 3, 4, 5};
+    System.out.println(solution(arr));
   }
 
 }
