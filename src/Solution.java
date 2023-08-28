@@ -1,27 +1,18 @@
+import java.util.stream.Stream;
+
 public class Solution {
 
-  // 0, 5, 10, 15, 20 17
-  public static int[] solution(int[] num_list) {
-    int[] result = new int[num_list.length + 1];
-    for(int i = 0; i < num_list.length; i++) {
-      result[i] = num_list[i];
+  public static int solution(String my_string, String is_prefix) {
+    String[] prefixArr = new String[my_string.length()];
+    for(int i = 0; i < my_string.length(); i++) {
+      prefixArr[i] = my_string.substring(0, i);
     }
-    int before = num_list[num_list.length - 2];
-    int last = num_list[num_list.length - 1];
-    if(last > before) {
-      result[result.length - 1] = last - before;
-    } else {
-      result[result.length - 1] = last * 2;
-    }
-    return result;
+    long count = Stream.of(prefixArr).filter((prefix) -> prefix.equals(is_prefix)).count();
+    return count > 0 ? 1 : 0;
   }
 
   public static void main(String[] args) {
-    int[] arr = {5, 2, 1, 7, 5};
-    int[] solution = solution(arr);
-    for(int i : solution) {
-      System.out.println(i);
-    }
+    System.out.println(solution("banana", "ban"));
   }
 
 }
