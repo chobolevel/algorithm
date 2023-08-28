@@ -2,17 +2,16 @@ import java.util.stream.IntStream;
 
 public class Solution {
 
-  public static int solution(int[] num_list) {
-    if(num_list.length > 10) {
-      return IntStream.of(num_list).sum();
-    } else {
-      return IntStream.of(num_list).reduce((acc, cur) -> acc * cur).getAsInt();
-    }
+  public static int[] solution(int[] num_list) {
+    return IntStream.of(num_list).sorted().skip(5).toArray();
   }
 
   public static void main(String[] args) {
-    int[] arr = {2, 3, 4, 5};
-    System.out.println(solution(arr));
+    int[] arr = {12, 4, 15, 46, 38, 1, 14, 56, 32, 10};
+    int[] solution = solution(arr);
+    for(int i : solution) {
+      System.out.println(i);
+    }
   }
 
 }
