@@ -1,24 +1,25 @@
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
 
-  public static int solution(String s) {
-    String[] split = s.split(" ");
-    int result = 0;
-    for(int i = 0; i < split.length; i++) {
-      if(!split[i].equals("Z")) {
-        result += Integer.parseInt(split[i]);
-      } else {
-        result -= Integer.parseInt(split[i - 1]);
+  public static int[] solution(int n) {
+    List<Integer> result = new ArrayList<>();
+    for(int i = 2; i <= n; i++) {
+      while(n % i == 0) {
+        result.add(i);
+        n /= i;
       }
     }
-    return result;
+    return result.stream().mapToInt(i -> i).distinct().toArray();
   }
 
   public static void main(String[] args) {
     int[] arr = {5, 7, 8, 3};
-    System.out.println(solution("10 Z 20 Z 1"));
+    int[] solution = solution(12);
+    for(int i : solution) {
+      System.out.println(i);
+    }
   }
 
 }
