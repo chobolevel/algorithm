@@ -3,14 +3,22 @@ import java.util.stream.Stream;
 
 public class Solution {
 
-  public static int solution(String myString, String pat) {
-    String str = Stream.of(myString.split("")).map(s -> s.equals("A") ? "B" : "A").collect(Collectors.joining());
-    return str.contains(pat) ? 1 : 0;
+  public static int solution(String s) {
+    String[] split = s.split(" ");
+    int result = 0;
+    for(int i = 0; i < split.length; i++) {
+      if(!split[i].equals("Z")) {
+        result += Integer.parseInt(split[i]);
+      } else {
+        result -= Integer.parseInt(split[i - 1]);
+      }
+    }
+    return result;
   }
 
   public static void main(String[] args) {
     int[] arr = {5, 7, 8, 3};
-    System.out.println(solution("ABBAA", "AABB"));
+    System.out.println(solution("10 Z 20 Z 1"));
   }
 
 }
